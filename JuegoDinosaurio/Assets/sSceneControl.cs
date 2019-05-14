@@ -44,13 +44,13 @@ public class sSceneControl : MonoBehaviour
             if (!IsLosed)
             {
                 IsLosed = true;
-                txtGame.text += "\n Game Over! \n Pulsa r para volver a empezar";
+                txtGame.text += "\n Game Over! \n Pulsa para volver a empezar";
                 Sonido.PlayOneShot(golpe, 1f);
                 Musica.Stop();
             }
             if (IsLosed)
             {
-                if (Input.GetKeyDown("r"))
+                if (Input.GetMouseButtonDown(0))
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }

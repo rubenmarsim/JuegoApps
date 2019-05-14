@@ -26,7 +26,7 @@ public class sPlayer : MonoBehaviour
         TiempoActual -= 1f;
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(iMovSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
 
-        if (Input.GetKeyDown("space")&&IsEnElPiso)
+        if (Input.GetMouseButtonDown(0)&&IsEnElPiso)
         {
             Sound.PlayOneShot(audioSalto, 1f);
             IsEnElPiso = false;
