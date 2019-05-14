@@ -21,7 +21,17 @@ public class sPlayer : MonoBehaviour
 
         if (Input.GetKeyDown("space")&&IsEnElPiso)
         {
+            IsEnElPiso = false;
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, iJump));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IsEnElPiso = true;
+        if (collision.gameObject.tag.Equals("Obstaculo"))
+        {
+            GameObject.Destroy(this.gameObject);
         }
     }
 
@@ -34,9 +44,9 @@ public class sPlayer : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        IsEnElPiso = false;
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    IsEnElPiso = false;
+    //}
 
 }
