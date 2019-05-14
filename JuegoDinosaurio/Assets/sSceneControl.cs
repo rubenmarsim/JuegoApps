@@ -14,12 +14,17 @@ public class sSceneControl : MonoBehaviour
     public float LugarSeguroDeGeneracion = 12;
     public Text txtGame;
     public bool IsLosed;
+    private AudioSource Sonido;
+    public AudioClip golpe;
+    public AudioSource Musica;
 
     // Start is called before the first frame update
     void Start()
     {
         PunteroJuego = -7;
         IsLosed = false;
+        Sonido = GetComponent<AudioSource>();
+        Musica.Play();
     }
 
     // Update is called once per frame
@@ -40,6 +45,8 @@ public class sSceneControl : MonoBehaviour
             {
                 IsLosed = true;
                 txtGame.text += "\n Game Over! \n Pulsa r para volver a empezar";
+                Sonido.PlayOneShot(golpe, 1f);
+                Musica.Stop();
             }
             if (IsLosed)
             {
