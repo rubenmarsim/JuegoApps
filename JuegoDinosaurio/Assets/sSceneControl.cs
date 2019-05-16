@@ -7,18 +7,52 @@ using UnityEngine.SceneManagement;
 
 public class sSceneControl : MonoBehaviour
 {
+    #region Variables
+    /// <summary>
+    /// Objeto Jugador
+    /// </summary>
     public GameObject Player;
+    /// <summary>
+    /// Objeto camara
+    /// </summary>
     public Camera GameCamera;
+    /// <summary>
+    /// Array de bloques
+    /// </summary>
     public GameObject[] aBloquePreFab;
+    /// <summary>
+    /// Puntero del juego
+    /// </summary>
     public float PunteroJuego;
+    /// <summary>
+    /// Lugar seguro de generacion
+    /// </summary>
     public float LugarSeguroDeGeneracion = 12;
+    /// <summary>
+    /// Texto que colocaremos en el canvas para poner la puntuacion y demas mensajes
+    /// </summary>
     public Text txtGame;
+    /// <summary>
+    /// Indicador de si hemos muerto o no
+    /// </summary>
     public bool IsLosed;
+    /// <summary>
+    /// Objeto de audio
+    /// </summary>
     private AudioSource Sonido;
+    /// <summary>
+    /// Objeto para clips de audio que contendra el audio de los golpes
+    /// </summary>
     public AudioClip golpe;
+    /// <summary>
+    /// Objeto de audio que contendra la musica
+    /// </summary>
     public AudioSource Musica;
+    #endregion Variables
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         PunteroJuego = -7;
@@ -27,7 +61,9 @@ public class sSceneControl : MonoBehaviour
         Musica.Play();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         if (Player != null)

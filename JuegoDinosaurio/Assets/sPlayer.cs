@@ -4,23 +4,53 @@ using UnityEngine;
 
 public class sPlayer : MonoBehaviour
 {
+    #region Variables
+    /// <summary>
+    /// Fuerza de salto
+    /// </summary>
     public int iJump;
+    /// <summary>
+    /// Valocidad de movimiento
+    /// </summary>
     public int iMovSpeed;
+    /// <summary>
+    /// Detecta si esta en contacto con el suelo o no
+    /// </summary>
     bool IsEnElPiso = false;
+    /// <summary>
+    /// Objeto de audio
+    /// </summary>
     private AudioSource Sound;
+    /// <summary>
+    /// Objeto para clips de audio que contendra el audio del salto
+    /// </summary>
     public AudioClip audioSalto;
+    /// <summary>
+    /// Objeto para clips de audio que contendra el audio de la caida
+    /// </summary>
     public AudioClip audiocaida;
+    /// <summary>
+    /// Los segundo que se va a tardar en incrementar la velocidad
+    /// </summary>
     public float segIncrement;
+    /// <summary>
+    /// El tiempo actual
+    /// </summary>
     float TiempoActual;
+    #endregion Variables
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         Sound = GetComponent<AudioSource>();
         TiempoActual = segIncrement * 60;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         TiempoActual -= 1f;
